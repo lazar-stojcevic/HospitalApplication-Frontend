@@ -1,0 +1,14 @@
+.navbar{
+    justify-content: space-between;
+}
+
+.navbar span:hover{
+    cursor: pointer;
+    color: #867f7f;
+}
+
+span{
+    padding-left: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
