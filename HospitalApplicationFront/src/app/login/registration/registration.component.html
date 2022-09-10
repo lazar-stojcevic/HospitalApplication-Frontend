@@ -1,16 +1,15 @@
-<section class="hero is-medium">
-    <div class="hero-body">
+<section>
+    <div>
         <div class="container ">
-            <div class="column is-6 is-offset-3">
-
-                <mat-card class="example-card">
+            <div>
+                <mat-card>
                     <div style="margin-left: 15%; margin-right: 15%;">
                         <br>
                         <mat-card-content style="margin-left: 1%; margin-right: 1%;">
                             <br>
                             <mat-form-field appearance="legacy" style="width: 100%;">
                                 <mat-label>Ime</mat-label>
-                                <input type="text" matInput placeholder="name" [(ngModel)]="patient.firstName"
+                                <input type="text" matInput placeholder="First name" [(ngModel)]="patient.firstName"
                                     [formControl]="nameForm" required>
 
                                 <mat-error *ngIf="nameForm.invalid">{{getnameErrorMessage()}}</mat-error>
@@ -18,33 +17,92 @@
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
                                 <mat-label>Prezime</mat-label>
-                                <input type="text" matInput placeholder="surname" [(ngModel)]="patient.surname"
+                                <input type="text" matInput placeholder="Prezime" [(ngModel)]="patient.surname"
                                     [formControl]="surnameForm" required>
 
                                 <mat-error *ngIf="surnameForm.invalid">{{getsurnameErrorMessage()}}</mat-error>
                             </mat-form-field>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
+                                <mat-label>JMBG</mat-label>
+                                <input type="text" matInput placeholder="JMBG" [(ngModel)]="patient.personalNumber"
+                                    [formControl]="personalNumberForm" required>
+                                <mat-error *ngIf="personalNumberForm.invalid">{{getPersonalNumberErrorMessage()}}</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="legacy" style="width: 100%;">
+                                <mat-label>Adresa</mat-label>
+                                <input type="text" matInput placeholder="Adresa" [(ngModel)]="patient.adress"
+                                    [formControl]="adressForm" required>
+                                <mat-error *ngIf="adressForm.invalid">{{getAdressErrorMessage()}}</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="legacy" style="width: 100%;">
                                 <mat-label>Email</mat-label>
-                                <input type="text" matInput placeholder="email" [(ngModel)]="patient.email"
+                                <input type="text" matInput placeholder="Email" [(ngModel)]="patient.email"
                                     [formControl]="emailForm" required>
 
                                 <mat-error *ngIf="emailForm.invalid">{{getEmailErrorMessage()}}</mat-error>
                             </mat-form-field>
 
-                            <mat-label classid="example-radio-group-label">Gender</mat-label>
+                            <mat-label classid="example-radio-group-label">Pol</mat-label>
+                            <br>
                             <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                                 [(ngModel)]="patient.gender">
-                                <mat-radio-button class="example-radio-button" [value]="0">
+                                <mat-radio-button class="example-radio-button" [value]="'Male'">
                                     Male
                                 </mat-radio-button>
-                                <mat-radio-button class="example-radio-button" [value]="1">
+                                <mat-radio-button class="example-radio-button" [value]="'Female'">
                                     Female
                                 </mat-radio-button>
                             </mat-radio-group>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
-                                <mat-label>Choose a date</mat-label>
+                                <mat-label>Visina</mat-label>
+                                <input type="text" matInput placeholder="Visina" [(ngModel)]="patient.height"
+                                    [formControl]="heightForm" required>
+                                <mat-error *ngIf="heightForm.invalid">{{getHeightErrorMessage()}}</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="legacy" style="width: 100%;">
+                                <mat-label>Težina</mat-label>
+                                <input type="text" matInput placeholder="Težina" [(ngModel)]="patient.weight"
+                                    [formControl]="weightForm" required>
+                                <mat-error *ngIf="weightForm.invalid">{{getWeightErrorMessage()}}</mat-error>
+                            </mat-form-field>
+
+                            <mat-label classid="example-radio-group-label">Krvna grupa</mat-label>
+                            <br>
+                            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                [(ngModel)]="patient.bloodType">
+                                <mat-radio-button class="example-radio-button" [value]="'A-'">
+                                    A-
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'A+'">
+                                    A+
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'B-'">
+                                    B-
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'B+'">
+                                    B+
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'AB-'">
+                                    AB-
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'AB+'">
+                                    AB+
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'0-'">
+                                    0-
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" [value]="'0+'">
+                                    0+
+                                </mat-radio-button>
+                            </mat-radio-group>
+
+                            <mat-form-field appearance="legacy" style="width: 100%;">
+                                <mat-label>Datum rođenja</mat-label>
                                 <input matInput [matDatepicker]="picker" [(ngModel)]="patient.dateOfBirth" [max]="maxDate" [formControl]="dateOfBirthForm">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
@@ -60,7 +118,7 @@
                             </mat-form-field>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
-                                <mat-label>username</mat-label>
+                                <mat-label>Korisničko ime</mat-label>
                                 <input type="text" matInput placeholder="username" [(ngModel)]="patient.username"
                                     [formControl]="usernameForm" required>
 
@@ -68,14 +126,14 @@
                             </mat-form-field>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
-                                <mat-label>Password</mat-label>
+                                <mat-label>Šifra</mat-label>
                                 <input type="password" matInput placeholder="password" [(ngModel)]="patient.password" required
                                     [formControl]="passwordForm">
                                 <mat-error *ngIf="passwordForm.invalid">{{getPasswordErrorMessage()}}</mat-error>
                             </mat-form-field>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
-                                <mat-label>Confirm password</mat-label>
+                                <mat-label>Potvrdi šifru</mat-label>
                                 <input type="password" matInput placeholder="confirmPassword"
                                     [formControl]="confirmPasswordForm" required>
 
@@ -86,7 +144,7 @@
                             <div style="text-align: center;">
                                 <button mat-raised-button color="primary" (click)="register()"
                                     [disabled]="usernameForm.invalid || passwordForm.invalid">
-                                    Register
+                                    Registruj se
                                 </button>
                             </div>
                         </mat-card-content>

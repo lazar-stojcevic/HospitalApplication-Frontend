@@ -10,7 +10,7 @@ import { Patient } from './patient';
 export class RegistrationComponent implements OnInit {
   maxDate: Date;
 
-  patient = new Patient("", "", "", "", "", "", 0, 0, "", "", "", "", "");
+  patient = new Patient("", "", "", "", "", "", 0, 0, "A-", "", "", "", "");
 
   usernameForm = new FormControl('', [Validators.required, Validators.maxLength(30), Validators.pattern(/^^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}$/i)]);
   nameForm = new FormControl('', [Validators.required, Validators.maxLength(30), Validators.pattern(/^[a-z0-9]+$/i)]);
@@ -54,30 +54,49 @@ export class RegistrationComponent implements OnInit {
   }
 
   getnameErrorMessage() {
-    return this.usernameForm.hasError('required') ? 'You must enter a value' :
+    return this.usernameForm.hasError('required') ? 'Morate uneti ime' :
       '';
   }
 
   getsurnameErrorMessage() {
-    return this.surnameForm.hasError('required') ? 'You must enter a value' :
+    return this.surnameForm.hasError('required') ? 'Morate uneti prezime' :
       '';
   }
 
+  getPersonalNumberErrorMessage() {
+    return this.surnameForm.hasError('required') ? 'Morate uneti JMBG' :
+      '';
+  }
+
+  getAdressErrorMessage() {
+    return this.surnameForm.hasError('required') ? 'Morate uneti adresu' :
+      '';
+  }
+
+  getHeightErrorMessage() {
+    return this.surnameForm.hasError('required') ? 'Morate uneti visinu' :
+      '';
+  }
+
+  getWeightErrorMessage() {
+    return this.surnameForm.hasError('required') ? 'Morate uneti težinu' :
+      '';
+  }
 
   getEmailErrorMessage() {
-    return this.emailForm.hasError('required') ? 'You must enter a value' :
-      this.emailForm.hasError('email') ? 'Not a valid email' :
+    return this.emailForm.hasError('required') ? 'Morate uneti email' :
+      this.emailForm.hasError('email') ? 'Email nije validan' :
         '';
   }
 
   getDateErrorMessage() {
-    return this.dateOfBirthForm.hasError('required') ? 'You must enter a value' :
+    return this.dateOfBirthForm.hasError('required') ? 'Morate uneti datum rođenja' :
       '';
   }
 
   getPhoneErrorMessage() {
     return this.phoneNumberForm.hasError('validators') ? '' :
-      'Phone number not in correct format';
+      'Broj telefona nije u dobro formatu';
   }
 
   getUsernameErrorMessage() {

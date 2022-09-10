@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +14,20 @@ export class LoginComponent implements OnInit {
   usernameForm = new FormControl('', [Validators.required, Validators.maxLength(30)]);
   passwordForm = new FormControl('', [Validators.required]);
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   login(): void {
-
+    this.authenticationService.login(this.username, this.password).subscribe((res: 
+      { token: string; }) => {
+        if (res.token != ""){
+          localStorage.setItem('role', res.token)
+        }else{
+          alert("Pogresna sifra");
+        }
+    });
   }
 
   getUsernameErrorMessage() {

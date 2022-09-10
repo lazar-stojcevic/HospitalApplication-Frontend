@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HeaderModule } from './header/header.module';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginModule } from './login/login.module';
     BrowserAnimationsModule,
     MaterialModule,
     HeaderModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
