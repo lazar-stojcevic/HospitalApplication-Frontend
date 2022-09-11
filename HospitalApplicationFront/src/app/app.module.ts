@@ -7,11 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HeaderModule } from './header/header.module';
 import { LoginModule } from './login/login.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { CustomInterceptor } from './services/interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

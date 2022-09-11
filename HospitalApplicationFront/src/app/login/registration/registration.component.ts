@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Patient } from './patient';
 
 @Component({
@@ -27,7 +29,7 @@ export class RegistrationComponent implements OnInit {
   confirmPasswordForm = new FormControl('', [Validators.required, this.equalsToPasswordValidator()]);
   dateOfBirthForm = new FormControl('', [Validators.required]);
 
-  constructor() {
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
     this.maxDate = new Date()
    }
 
@@ -35,7 +37,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   register(){
-
+    this.authenticationService.register(this.patient).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['login'])
+    });
   }
 
   private patternValidator(regex: string, error: ValidationErrors): ValidatorFn {

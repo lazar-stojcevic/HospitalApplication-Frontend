@@ -21,9 +21,14 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.authenticationService.login(this.username, this.password).subscribe((res: 
-      { token: string; }) => {
+      { 
+        token: string; 
+        role: string;
+      }) => {
         if (res.token != ""){
-          localStorage.setItem('role', res.token)
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('role', res.role);
+          window.location.reload();
         }else{
           alert("Pogresna sifra");
         }
