@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   usernameForm = new FormControl('', [Validators.required, Validators.maxLength(30)]);
   passwordForm = new FormControl('', [Validators.required]);
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,11 +25,16 @@ export class LoginComponent implements OnInit {
       { 
         token: string; 
         role: string;
+        userId: string;
       }) => {
         if (res.token != ""){
           localStorage.setItem('token', res.token);
           localStorage.setItem('role', res.role);
-          window.location.reload();
+          localStorage.setItem('id', res.userId);
+          this.router.navigate([''])
+          .then(() => {
+            window.location.reload();
+          });
         }else{
           alert("Pogresna sifra");
         }

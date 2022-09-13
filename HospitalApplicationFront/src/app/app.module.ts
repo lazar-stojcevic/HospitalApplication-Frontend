@@ -10,6 +10,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CustomInterceptor } from './services/interceptor';
+import { AppointmentsModule } from './appointments/appointments.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CustomInterceptor } from './services/interceptor';
     MaterialModule,
     HeaderModule,
     LoginModule,
-    HttpClientModule 
+    HttpClientModule,
+    AppointmentsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi:true}
