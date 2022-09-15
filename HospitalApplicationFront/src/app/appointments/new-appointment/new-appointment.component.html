@@ -1,0 +1,6 @@
+<mat-label>Odaberite doktora:</mat-label>
+<mat-form-field>
+    <mat-select>
+        <mat-option *ngFor="let doctor of doctors.doctors" [value]="doctor.id">{{doctor.medicalSpeciality}} - {{doctor.firstName}} {{doctor.surname}}</mat-option>
+    </mat-select>
+</mat-form-field>
