@@ -4,6 +4,8 @@ import { PatientAppointmentsComponent } from './patient-appointments/patient-app
 import { MaterialModule } from '../material/material.module';
 import { MatCardModule } from '@angular/material/card';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,6 +17,9 @@ import { NewAppointmentComponent } from './new-appointment/new-appointment.compo
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
 })
 export class AppointmentsModule { }

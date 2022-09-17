@@ -1,6 +1,42 @@
 <mat-label>Odaberite doktora:</mat-label>
 <mat-form-field>
-    <mat-select>
-        <mat-option *ngFor="let doctor of doctors.doctors" [value]="doctor.id">{{doctor.medicalSpeciality}} - {{doctor.firstName}} {{doctor.surname}}</mat-option>
+    <mat-select [(ngModel)]="doctorId" [formControl]="doctorForm">
+        <mat-option *ngFor="let doctor of doctors.doctors" [value]="doctor.id">
+            {{doctor.medicalSpeciality}} - {{doctor.firstName}} {{doctor.surname}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<br>
+<mat-label>Odaberite dužinu termina:</mat-label>
+<mat-form-field>
+    <mat-select [(ngModel)]="length" (selectionChange)="getTerms()">
+        <mat-option [value]="5">
+            5 minuta
+        </mat-option>
+        <mat-option [value]="10">
+            10 minuta
+        </mat-option>
+        <mat-option [value]="15">
+            15 minuta
+        </mat-option>
+        <mat-option [value]="20">
+            20 minuta
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="legacy" style="width: 100%;">
+    <mat-label>Datum</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date" [min]="maxDate" [formControl]="dateForm">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-label>Odaberite termin:</mat-label>
+<mat-form-field>
+    <mat-select [(ngModel)]="selectedTerm">
+        <mat-option *ngFor="let term of terms.freeAppointments" [value]="term">
+            {{term.startTime | date:'HH:mm'}} - {{term.endTime | date:'HH:mm'}}
+        </mat-option>
     </mat-select>
 </mat-form-field>
