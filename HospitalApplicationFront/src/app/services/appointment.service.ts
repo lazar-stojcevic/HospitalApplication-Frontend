@@ -17,4 +17,8 @@ export class AppointmentService {
   getFreeTerms(patientId: string, doctorId: string, date: string, length: string){
     return this.http.get(environment.serverUrl + 'appointments/free/' + patientId + '/' + doctorId + '/' + date + '/' + length);
   }
+
+  createNewAppointment(patientId: string, doctorId: string, startTime: string, endTime: string){
+    return this.http.post(environment.serverUrl + 'appointments', {patientId: patientId, doctorId: doctorId, startTime: startTime, endTime: endTime});
+  }
 }

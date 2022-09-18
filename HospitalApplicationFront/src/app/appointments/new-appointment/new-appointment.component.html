@@ -34,9 +34,16 @@
 
 <mat-label>Odaberite termin:</mat-label>
 <mat-form-field>
-    <mat-select [(ngModel)]="selectedTerm">
+    <mat-select [(ngModel)]="selectedTerm" [formControl]="termForm">
         <mat-option *ngFor="let term of terms.freeAppointments" [value]="term">
             {{term.startTime | date:'HH:mm'}} - {{term.endTime | date:'HH:mm'}}
         </mat-option>
     </mat-select>
 </mat-form-field>
+
+<div style="text-align: center;">
+    <button mat-raised-button color="primary" (click)="register()"
+        [disabled]="termForm.invalid || doctorForm.invalid">
+        Zakaži
+    </button>
+</div>

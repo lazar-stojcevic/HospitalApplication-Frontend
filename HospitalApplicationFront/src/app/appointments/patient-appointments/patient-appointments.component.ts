@@ -31,7 +31,21 @@ export class PatientAppointmentsComponent implements OnInit {
 
   CreateAppointment(){
     this.dialog.open(NewAppointmentComponent)
-      .afterClosed().subscribe(res => console.log('Dialog zatvoren'));
+      .afterClosed().subscribe(res => {
+        if (res.saved){
+          this.getAppointments();
+        }
+      });
+  }
+
+  getAppointments(){
+    if (this.userId){
+      this.appointmentService.getPatientAppointments(this.userId).subscribe(res => {
+        this.appointments = res;
+        this.pastAppointments = this.appointments.appointments.filter(x => x.report);
+        this.nextAppointments = this.appointments.appointments.filter(x => !x.report);
+      })
+    }
   }
 
 }

@@ -44,7 +44,21 @@ export class NewAppointmentComponent implements OnInit {
   getTerms(){
     const userId = localStorage.getItem('id')
     this.appointmentService.getFreeTerms(userId!, this.doctorId!, this.date.toISOString(), this.length)
-      .subscribe(res => this.terms = res);
+      .subscribe(res => {
+        this.terms = res;
+        this.selectedTerm = undefined;
+      });
+  }
+
+  register(){
+    const userId = localStorage.getItem('id');
+    this.appointmentService.createNewAppointment(
+      userId!, 
+      this.doctorId!, 
+      this.selectedTerm.startTime, 
+      this.selectedTerm.endTime).subscribe(res => {
+        this.dialogRef.close({saved: true});
+      });
   }
 
 }
