@@ -14,6 +14,10 @@ export class AppointmentService {
     return this.http.get(environment.serverUrl + 'appointments/patient/' + patientId);
   }
 
+  getDoctorAppointments(doctorId: string){
+    return this.http.get(environment.serverUrl + 'appointments/doctor/future/' + doctorId);
+  }
+
   getFreeTerms(patientId: string, doctorId: string, date: string, length: string){
     return this.http.get(environment.serverUrl + 'appointments/free/' + patientId + '/' + doctorId + '/' + date + '/' + length);
   }
