@@ -7,6 +7,7 @@ import { NewAppointmentComponent } from './new-appointment/new-appointment.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appointments.component';
+import { OneAppointmentComponent } from './one-appointment/one-appointment.component';
 
 
 
@@ -14,7 +15,8 @@ import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appoin
   declarations: [
     PatientAppointmentsComponent,
     NewAppointmentComponent,
-    DoctorAppointmentsComponent
+    DoctorAppointmentsComponent,
+    OneAppointmentComponent
   ],
   imports: [
     CommonModule,

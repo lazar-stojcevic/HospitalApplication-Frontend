@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { NewAppointmentComponent } from '../new-appointment/new-appointment.component';
 
@@ -11,7 +12,10 @@ import { NewAppointmentComponent } from '../new-appointment/new-appointment.comp
 export class DoctorAppointmentsComponent implements OnInit {
   appointments : any;
   userId: string | undefined | null;
-  constructor(private appointmentService: AppointmentService, public dialog: MatDialog) { }
+  constructor(
+    private appointmentService: AppointmentService,
+    private router: Router,
+    public dialog: MatDialog) { }
   
   ngOnInit(): void {
     this.userId = localStorage.getItem('id');
@@ -35,7 +39,7 @@ export class DoctorAppointmentsComponent implements OnInit {
   }
 
   startAppointment(appointmentId: string){
-
+    this.router.navigate(['appointment/' + appointmentId]);
   }
 
   getAppointments(){

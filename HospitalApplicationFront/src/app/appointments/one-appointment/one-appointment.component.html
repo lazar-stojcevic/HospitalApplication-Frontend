@@ -1,0 +1,8 @@
+<h1>Doktor: {{appointment.doctorName}} - Pacijent: {{appointment.patientName}}</h1>
+<br>
+<h2>Termin: {{appointment.startTime | date: 'd.M.Y HH:mm'}} - {{appointment.endTime | date:'HH:mm'}}</h2>
+<br>
+<h2>Izveštaj:</h2>
+<p *ngIf="appointment.report"></p>
+<textarea matInput  *ngIf="!appointment.report" [(ngModel)]="report"></textarea>
+<button>Završi pregled</button>
