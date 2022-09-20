@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
@@ -10,11 +10,14 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 export class OneAppointmentComponent implements OnInit {
   appointment: any;
   report: string;
+  price: number;
 
   constructor(
     private route: ActivatedRoute, 
-    private appointmentService: AppointmentService) { 
+    private appointmentService: AppointmentService, 
+    public router: Router) { 
       this.report = '';
+      this.price = 0;
     }
 
   ngOnInit(): void {
@@ -24,6 +27,12 @@ export class OneAppointmentComponent implements OnInit {
         this.appointment = res;
       })
     }
+  }
+
+  finishAppointment(){
+    this.appointmentService.finishAppointment(this.appointment.id, this.price, this.report).subscribe(() => {
+      this.router.navigate(['doctor-appointments']);
+    });
   }
 
 }

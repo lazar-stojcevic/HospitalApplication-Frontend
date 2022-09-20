@@ -29,4 +29,8 @@ export class AppointmentService {
   createNewAppointment(patientId: string, doctorId: string, startTime: string, endTime: string){
     return this.http.post(environment.serverUrl + 'appointments', {patientId: patientId, doctorId: doctorId, startTime: startTime, endTime: endTime});
   }
+
+  finishAppointment(id: string, price: number, report: string){
+    return this.http.put(environment.serverUrl + 'appointments/finish', {id: id, price: price, report: report});
+  }
 }
