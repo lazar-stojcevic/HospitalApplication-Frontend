@@ -30,7 +30,7 @@ export class PatientAppointmentsComponent implements OnInit {
   }
 
   CreateAppointment(){
-    this.dialog.open(NewAppointmentComponent)
+    this.dialog.open(NewAppointmentComponent, {data: {patientId : localStorage.getItem('id')}})
       .afterClosed().subscribe(res => {
         if (res.saved){
           this.getAppointments();

@@ -29,15 +29,6 @@ export class DoctorAppointmentsComponent implements OnInit {
     }
   }
 
-  CreateAppointment(){
-    this.dialog.open(NewAppointmentComponent)
-      .afterClosed().subscribe(res => {
-        if (res.saved){
-          this.getAppointments();
-        }
-      });
-  }
-
   startAppointment(appointmentId: string){
     this.router.navigate(['appointment/' + appointmentId]);
   }

@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AppointmentService } from 'src/app/services/appointment.service';
-import { DoctorService } from 'src/app/services/doctor.service';
+import { Component, OnInit, Inject } from "@angular/core";
+import { FormControl, Validators } from "@angular/forms";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { AppointmentService } from "src/app/services/appointment.service";
+import { DoctorService } from "src/app/services/doctor.service";
+
 
 @Component({
   selector: 'app-new-appointment',
@@ -26,7 +27,7 @@ export class NewAppointmentComponent implements OnInit {
     private doctorService: DoctorService,
     private appointmentService: AppointmentService,
     public dialogRef: MatDialogRef<NewAppointmentComponent>,
-    @Inject(MAT_DIALOG_DATA) public userId: string,
+    @Inject(MAT_DIALOG_DATA) public data: {patientId: string|undefined},
   ) {
     this.date = new Date();
     this.maxDate = new Date(); 
@@ -42,16 +43,30 @@ export class NewAppointmentComponent implements OnInit {
   }
 
   getTerms(){
-    const userId = localStorage.getItem('id')
+    let userId: string;
+    if (this.data.patientId){
+      userId = this.data.patientId;
+    }else if (localStorage.getItem('id')){
+      userId = localStorage.getItem('id')!
+    }else{
+      return;
+    }
     this.appointmentService.getFreeTerms(userId!, this.doctorId!, this.date.toISOString(), this.length)
       .subscribe(res => {
         this.terms = res;
-        this.selectedTerm = undefined;
+        this.termForm.setValue('');
       });
   }
 
   register(){
-    const userId = localStorage.getItem('id');
+    let userId: string;
+    if (this.data.patientId){
+      userId = this.data.patientId;
+    }else if (localStorage.getItem('id')){
+      userId = localStorage.getItem('id')!
+    }else{
+      return;
+    }
     this.appointmentService.createNewAppointment(
       userId!, 
       this.doctorId!, 

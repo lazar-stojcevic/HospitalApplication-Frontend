@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { NewAppointmentComponent } from '../new-appointment/new-appointment.component';
 
 @Component({
   selector: 'app-one-appointment',
@@ -14,10 +16,12 @@ export class OneAppointmentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    private appointmentService: AppointmentService, 
+    private appointmentService: AppointmentService,
+    public dialog: MatDialog,
     public router: Router) { 
       this.report = '';
       this.price = 0;
+      this.appointment = {doctorName : "", patientName: ""};
     }
 
   ngOnInit(): void {
@@ -33,6 +37,14 @@ export class OneAppointmentComponent implements OnInit {
     this.appointmentService.finishAppointment(this.appointment.id, this.price, this.report).subscribe(() => {
       this.router.navigate(['doctor-appointments']);
     });
+  }
+
+  createAppointment(){
+    this.dialog.open(NewAppointmentComponent, {data: {patientId : this.appointment.patientId}})
+      .afterClosed().subscribe(res => {
+        if (res)
+          alert('Novi pregled je zakazan');
+      });
   }
 
 }

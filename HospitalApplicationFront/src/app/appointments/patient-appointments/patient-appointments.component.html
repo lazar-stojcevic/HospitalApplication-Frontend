@@ -2,7 +2,7 @@
   <div class="buttons-containter">
     <button mat-button style="background-color: purple; margin-top: 1%;" (click)="CreateAppointment()">Zakaži pregled</button>
   </div>
-    <h1>Budući pregledi:</h1>
+    <h1>Nazavršeni pregledi:</h1>
     <mat-card class="card" *ngFor="let appointment of nextAppointments" class="example-card">
         <mat-card-title>{{appointment.startTime | date: 'd.M.Y HH:mm'}} - {{appointment.endTime | date:'HH:mm'}}</mat-card-title>
         <mat-card-subtitle>{{appointment.doctorName}} - {{appointment.doctorSpeciality}}</mat-card-subtitle>

@@ -1,4 +1,4 @@
-<h1>Doktor: {{appointment.doctorName}} - Pacijent: {{appointment.patientName}}</h1>
+<h1>Doktor: {{appointment.doctorName ?? ''}} - Pacijent: {{appointment.patientName}}</h1>
 <br>
 <h2>Termin: {{appointment.startTime | date: 'd.M.Y HH:mm'}} - {{appointment.endTime | date:'HH:mm'}}</h2>
 <br>
@@ -8,4 +8,5 @@
 <h2 *ngIf="appointment.price">Cena: {{appointment.price}}</h2>
 <h2 *ngIf="!appointment.price">Cena:</h2>
 <input *ngIf="!appointment.price" mat-input [(ngModel)]="price" type="number">
+<button mat-button *ngIf="!appointment.report" (click)="createAppointment()">Zakaži novi pregled</button>
 <button mat-button *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>
