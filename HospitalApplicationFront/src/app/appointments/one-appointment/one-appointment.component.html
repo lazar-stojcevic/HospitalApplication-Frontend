@@ -1,12 +1,14 @@
 <h1>Doktor: {{appointment.doctorName ?? ''}} - Pacijent: {{appointment.patientName}}</h1>
 <br>
+<button mat-flat-button *ngIf="!appointment.report" (click)="seePatientPastAppointments()">Prethodni pregledi pacijenta</button>
+<br>
 <h2>Termin: {{appointment.startTime | date: 'd.M.Y HH:mm'}} - {{appointment.endTime | date:'HH:mm'}}</h2>
 <br>
 <h2>Izveštaj:</h2>
 <p *ngIf="appointment.report"></p>
 <textarea matInput  *ngIf="!appointment.report" [(ngModel)]="report"></textarea>
-<h2 *ngIf="appointment.price">Cena: {{appointment.price}}</h2>
-<h2 *ngIf="!appointment.price">Cena:</h2>
-<input *ngIf="!appointment.price" mat-input [(ngModel)]="price" type="number">
-<button mat-button *ngIf="!appointment.report" (click)="createAppointment()">Zakaži novi pregled</button>
-<button mat-button *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>
+<h2 *ngIf="appointment.report">Cena: {{appointment.price}}</h2>
+<h2 *ngIf="!appointment.report">Cena:</h2>
+<input *ngIf="!appointment.report" mat-input [(ngModel)]="price" type="number">
+<button mat-flat-button *ngIf="!appointment.report" (click)="createAppointment()">Zakaži novi pregled</button>
+<button [disabled]="report.trim() === ''" mat-flat-button *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>

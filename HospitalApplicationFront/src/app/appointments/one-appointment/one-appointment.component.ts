@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { NewAppointmentComponent } from '../new-appointment/new-appointment.component';
+import { PatientPastAppointmentsComponent } from '../patient-past-appointments/patient-past-appointments.component';
 
 @Component({
   selector: 'app-one-appointment',
@@ -45,6 +46,10 @@ export class OneAppointmentComponent implements OnInit {
         if (res)
           alert('Novi pregled je zakazan');
       });
+  }
+
+  seePatientPastAppointments(){
+    this.dialog.open(PatientPastAppointmentsComponent, {data: {patientId : this.appointment.patientId}});
   }
 
 }

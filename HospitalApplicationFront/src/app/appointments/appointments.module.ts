@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appointments.component';
 import { OneAppointmentComponent } from './one-appointment/one-appointment.component';
+import { PatientPastAppointmentsComponent } from './patient-past-appointments/patient-past-appointments.component';
 
 
 
@@ -16,7 +17,8 @@ import { OneAppointmentComponent } from './one-appointment/one-appointment.compo
     PatientAppointmentsComponent,
     NewAppointmentComponent,
     DoctorAppointmentsComponent,
-    OneAppointmentComponent
+    OneAppointmentComponent,
+    PatientPastAppointmentsComponent
   ],
   imports: [
     CommonModule,
