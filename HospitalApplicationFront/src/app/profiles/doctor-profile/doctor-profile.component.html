@@ -1,0 +1,57 @@
+<div class="container">
+    <mat-card style="width: 50%; margin: auto">
+    <div style="text-align: center;">
+        <h1>Podaci:</h1>
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Korisničko ime:</mat-label>
+                <input matInput [(ngModel)]="doctor.username" name="username">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ime:</mat-label>
+                <input matInput [(ngModel)]="doctor.firstName" name="firstname">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Prezime:</mat-label>
+                <input matInput [(ngModel)]="doctor.surname" name="surname">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>JMBG:</mat-label>
+                <input matInput [(ngModel)]="doctor.personalNumber" name="personalNumber">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Broj telefona:</mat-label>
+                <input matInput [(ngModel)]="doctor.phoneNumber" name="phoneNumber">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Mejl:</mat-label>
+                <input matInput [(ngModel)]="doctor.email" name="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="legacy" style="width: 30%;">
+                <mat-label>Datum rođenja</mat-label>
+                <input matInput [matDatepicker]="picker" name="dateOfBirth" [(ngModel)]="doctor.dateOfBirth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose one</mat-label>
+                <mat-select [(ngModel)]="doctor.medicalSpeciality" name="speciality">
+                <mat-option value="Internists">Internists</mat-option>
+                <mat-option value="Urologists">Urologists</mat-option>
+                <mat-option value="Rheumatologists">Rheumatologists</mat-option>
+                <mat-option value="Radiologists">Radiologists</mat-option>
+                <mat-option value="Pulmonologists">Pulmonologists</mat-option>
+                <mat-option value="Dermatologists">Dermatologists</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+    </mat-card>
+</div>

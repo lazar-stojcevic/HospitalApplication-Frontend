@@ -6,7 +6,7 @@
         <span *ngIf="role === 'DOCTOR' || role === 'ADMIN'" [routerLink]="['/doctor-appointments']">Pregledi</span>
         <span [routerLink]="['/login']" *ngIf="role === ''">Prijava</span>
         <span [routerLink]="['/registration']" *ngIf="role === ''">Registracija</span>
-        <span *ngIf="role !== '' && role !== 'ADMIN'">Moj profil</span>
+        <span *ngIf="role === 'DOCTOR'" [routerLink]="['/doctor/' + currentUserId]">Moj profil</span>
         <span *ngIf="role !== ''" (click)="logout()">Odjavi se</span>
     </div>
 </mat-toolbar>

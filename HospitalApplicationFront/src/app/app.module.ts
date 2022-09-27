@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CustomInterceptor } from './services/interceptor';
 import { AppointmentsModule } from './appointments/appointments.module';
+import { ProfilesModule } from './profiles/profiles.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AppointmentsModule } from './appointments/appointments.module';
     HeaderModule,
     LoginModule,
     HttpClientModule,
-    AppointmentsModule
+    AppointmentsModule,
+    ProfilesModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi:true}

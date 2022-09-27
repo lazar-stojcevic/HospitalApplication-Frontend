@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   role = "";
+  currentUserId = "";
 
   constructor() { }
 
   ngOnInit(): void { 
     this.role = localStorage.getItem('role') ?? "";
+    console.log(this.role)
+    this.currentUserId = localStorage.getItem('id') ?? "";
   }
 
   logout() {

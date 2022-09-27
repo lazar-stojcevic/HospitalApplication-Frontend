@@ -10,8 +10,6 @@ import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appoin
 import { OneAppointmentComponent } from './one-appointment/one-appointment.component';
 import { PatientPastAppointmentsComponent } from './patient-past-appointments/patient-past-appointments.component';
 
-
-
 @NgModule({
   declarations: [
     PatientAppointmentsComponent,
