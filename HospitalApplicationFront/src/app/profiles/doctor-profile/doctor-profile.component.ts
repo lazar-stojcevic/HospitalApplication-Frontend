@@ -46,6 +46,7 @@ export class DoctorProfileComponent implements OnInit {
   }
 
   saveChanges(){
+    this.doctor.dateOfBirth = new Date(this.doctor.dateOfBirth);
     this.doctor.dateOfBirth.setDate(this.doctor.dateOfBirth.getDate() + 1);
     this.doctorService.updateDoctorData(
       this.doctor.id,
