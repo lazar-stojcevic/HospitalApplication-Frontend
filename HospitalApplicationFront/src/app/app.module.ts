@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CustomInterceptor } from './services/interceptor';
 import { AppointmentsModule } from './appointments/appointments.module';
 import { ProfilesModule } from './profiles/profiles.module';
+import { FinancialModule } from './financial/financial.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfilesModule } from './profiles/profiles.module';
     LoginModule,
     HttpClientModule,
     AppointmentsModule,
-    ProfilesModule
+    ProfilesModule,
+    FinancialModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi:true}

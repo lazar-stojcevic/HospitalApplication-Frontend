@@ -7,6 +7,7 @@
         <span [routerLink]="['/login']" *ngIf="role === ''">Prijava</span>
         <span [routerLink]="['/registration']" *ngIf="role === ''">Registracija</span>
         <span *ngIf="role === 'DOCTOR'" [routerLink]="['/doctor/' + currentUserId]">Moj profil</span>
+        <span *ngIf="role === 'PATIENT'" [routerLink]="['/patient/account/' + currentUserId]">Stanje na računu</span>
         <span *ngIf="role === 'PATIENT'" [routerLink]="['/patient/' + currentUserId]">Moj profil</span>
         <span *ngIf="role !== ''" (click)="logout()">Odjavi se</span>
     </div>

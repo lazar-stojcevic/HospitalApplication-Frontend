@@ -1,0 +1,13 @@
+<div class="container">
+    <div>
+        <mat-card>
+            <div style="margin-left: 15%; margin-right: 15%;">
+                <mat-card-title>Stanje na računu:</mat-card-title>
+                <mat-card-content>
+                    <p>Iznos: {{account.balance}} RSD</p>
+                    <p *ngIf="isBalanceNegative" style="color: rgb(217, 23, 23);">Imate dug na računu, ukoliko uskoro ne izmirite vaše obaveze Vaš nalog može biti blokiran.</p>
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </div>
+</div>

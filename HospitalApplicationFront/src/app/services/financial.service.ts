@@ -1,0 +1,16 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FinancialService {
+
+  constructor(private http: HttpClient, private router: Router) { }
+
+  getOneAccount(id: string) {
+    return this.http.get(environment.serverUrl + 'accounts/' + id);
+  }
+}
