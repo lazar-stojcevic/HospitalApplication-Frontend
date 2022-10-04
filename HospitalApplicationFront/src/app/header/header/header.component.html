@@ -9,6 +9,7 @@
         <span *ngIf="role === 'DOCTOR'" [routerLink]="['/doctor/' + currentUserId]">Moj profil</span>
         <span *ngIf="role === 'PATIENT'" [routerLink]="['/patient/account/' + currentUserId]">Stanje na računu</span>
         <span *ngIf="role === 'PATIENT'" [routerLink]="['/patient/' + currentUserId]">Moj profil</span>
+        <span *ngIf="role === 'ACCOUNTANT'" [routerLink]="['/accountant/' + currentUserId]">Moj profil</span>
         <span *ngIf="role !== ''" (click)="logout()">Odjavi se</span>
     </div>
 </mat-toolbar>

@@ -7,6 +7,7 @@ import { PatientAccountComponent } from './financial/patient-account/patient-acc
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrationComponent } from './login/registration/registration.component';
+import { AccountantProfileComponent } from './profiles/accountant-profile/accountant-profile.component';
 import { DoctorProfileComponent } from './profiles/doctor-profile/doctor-profile.component';
 import { PatientProfileComponent } from './profiles/patient-profile/patient-profile.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'appointment/:id', component: OneAppointmentComponent },
   { path: 'doctor/:id', component: DoctorProfileComponent },
   { path: 'patient/:id', component: PatientProfileComponent },
+  { path: 'accountant/:id', component: AccountantProfileComponent },
   { path: 'patient/account/:id', component: PatientAccountComponent },
 ];
 
