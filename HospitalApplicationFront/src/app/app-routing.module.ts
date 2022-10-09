@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DoctorAppointmentsComponent } from './appointments/doctor-appointments/doctor-appointments.component';
 import { OneAppointmentComponent } from './appointments/one-appointment/one-appointment.component';
 import { PatientAppointmentsComponent } from './appointments/patient-appointments/patient-appointments.component';
+import { AllAccountsComponent } from './financial/all-accounts/all-accounts.component';
 import { PatientAccountComponent } from './financial/patient-account/patient-account.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'patient/:id', component: PatientProfileComponent },
   { path: 'accountant/:id', component: AccountantProfileComponent },
   { path: 'patient/account/:id', component: PatientAccountComponent },
+  { path: 'accounts', component: AllAccountsComponent },
 ];
 
 @NgModule({

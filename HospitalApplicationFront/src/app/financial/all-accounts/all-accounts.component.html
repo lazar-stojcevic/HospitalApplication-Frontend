@@ -1,0 +1,22 @@
+<table mat-table [dataSource]="accounts" class="mat-elevation-z8">  
+    <!-- Position Column -->
+    <ng-container matColumnDef="patientUsername">
+      <th mat-header-cell *matHeaderCellDef> Korisnik </th>
+      <td mat-cell *matCellDef="let element"> {{element.patientUsername}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="accountNumber">
+      <th mat-header-cell *matHeaderCellDef> Broj računa </th>
+      <td mat-cell *matCellDef="let element"> {{element.accountNumber}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef> Iznos na računu </th>
+      <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

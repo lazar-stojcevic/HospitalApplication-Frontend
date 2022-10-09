@@ -13,4 +13,8 @@ export class FinancialService {
   getOneAccount(id: string) {
     return this.http.get(environment.serverUrl + 'accounts/' + id);
   }
+
+  getAllAccounts() {
+    return this.http.get(environment.serverUrl + 'accounts/');
+  }
 }
