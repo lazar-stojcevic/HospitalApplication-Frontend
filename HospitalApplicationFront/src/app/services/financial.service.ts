@@ -17,4 +17,8 @@ export class FinancialService {
   getAllAccounts() {
     return this.http.get(environment.serverUrl + 'accounts/');
   }
+
+  payDeposit(id: string, change: number) {
+    return this.http.put(environment.serverUrl + 'account/change', {id: id, change: change});
+  }
 }
