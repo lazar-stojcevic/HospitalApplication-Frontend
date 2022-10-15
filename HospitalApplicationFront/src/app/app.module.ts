@@ -13,6 +13,7 @@ import { CustomInterceptor } from './services/interceptor';
 import { AppointmentsModule } from './appointments/appointments.module';
 import { ProfilesModule } from './profiles/profiles.module';
 import { FinancialModule } from './financial/financial.module';
+import { DoctorsModule } from './doctors/doctors.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FinancialModule } from './financial/financial.module';
     HttpClientModule,
     AppointmentsModule,
     ProfilesModule,
-    FinancialModule
+    FinancialModule,
+    DoctorsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi:true}

@@ -9,6 +9,6 @@
 <textarea matInput  *ngIf="!appointment.report" [(ngModel)]="report"></textarea>
 <h2 *ngIf="appointment.report">Cena: {{appointment.price}}</h2>
 <h2 *ngIf="!appointment.report">Cena:</h2>
-<input *ngIf="!appointment.report" mat-input [(ngModel)]="price" type="number">
+<input *ngIf="!appointment.report" mat-input step="1" [(ngModel)]="price" type="number">
 <button mat-flat-button *ngIf="!appointment.report" (click)="createAppointment()">Zakaži novi pregled</button>
-<button [disabled]="report.trim() === ''" mat-flat-button *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>
+<button [disabled]="report.trim() === '' || price < 0" mat-flat-button *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>

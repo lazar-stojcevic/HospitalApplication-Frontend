@@ -4,8 +4,9 @@
         <span [routerLink]="['']">Početna strana</span>
         <span *ngIf="role === 'PATIENT' || role === 'ADMIN'" [routerLink]="['/appointments']">Pregledi</span>
         <span *ngIf="role === 'DOCTOR' || role === 'ADMIN'" [routerLink]="['/doctor-appointments']">Pregledi</span>
-        <span [routerLink]="['/login']" *ngIf="role === ''">Prijava</span>
-        <span [routerLink]="['/registration']" *ngIf="role === ''">Registracija</span>
+        <span *ngIf="role !== ''" [routerLink]="['/doctors']">Lekari</span>
+        <span *ngIf="role === ''" [routerLink]="['/login']">Prijava</span>
+        <span *ngIf="role === ''" [routerLink]="['/registration']">Registracija</span>
         <span *ngIf="role === 'DOCTOR'" [routerLink]="['/doctor/' + currentUserId]">Moj profil</span>
         <span *ngIf="role === 'PATIENT'" [routerLink]="['/patient/account/' + currentUserId]">Stanje na računu</span>
         <span *ngIf="role === 'PATIENT'" [routerLink]="['/patient/' + currentUserId]">Moj profil</span>

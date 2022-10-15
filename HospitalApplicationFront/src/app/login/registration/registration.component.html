@@ -58,15 +58,15 @@
                             </mat-radio-group>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
-                                <mat-label>Visina</mat-label>
-                                <input type="text" matInput placeholder="Visina" [(ngModel)]="patient.height"
+                                <mat-label>Visina u cm</mat-label>
+                                <input type="number" matInput placeholder="Visina" [(ngModel)]="patient.height"
                                     [formControl]="heightForm" required>
                                 <mat-error *ngIf="heightForm.invalid">{{getHeightErrorMessage()}}</mat-error>
                             </mat-form-field>
 
                             <mat-form-field appearance="legacy" style="width: 100%;">
-                                <mat-label>Težina</mat-label>
-                                <input type="text" matInput placeholder="Težina" [(ngModel)]="patient.weight"
+                                <mat-label>Težina u kg</mat-label>
+                                <input type="number" matInput placeholder="Težina" [(ngModel)]="patient.weight"
                                     [formControl]="weightForm" required>
                                 <mat-error *ngIf="weightForm.invalid">{{getWeightErrorMessage()}}</mat-error>
                             </mat-form-field>

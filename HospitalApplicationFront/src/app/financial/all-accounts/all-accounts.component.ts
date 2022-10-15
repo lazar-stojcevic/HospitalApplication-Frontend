@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { NewAppointmentComponent } from 'src/app/appointments/new-appointment/new-appointment.component';
 import { FinancialService } from 'src/app/services/financial.service';
 import { InsertDepositDialogComponent } from '../insert-deposit-dialog/insert-deposit-dialog.component';
 
