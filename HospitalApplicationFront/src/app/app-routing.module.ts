@@ -9,6 +9,7 @@ import { PatientAccountComponent } from './financial/patient-account/patient-acc
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrationComponent } from './login/registration/registration.component';
+import { AllPatientsComponent } from './patients/all-patients/all-patients.component';
 import { AccountantProfileComponent } from './profiles/accountant-profile/accountant-profile.component';
 import { DoctorProfileComponent } from './profiles/doctor-profile/doctor-profile.component';
 import { PatientProfileComponent } from './profiles/patient-profile/patient-profile.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'patient/account/:id', component: PatientAccountComponent },
   { path: 'accounts', component: AllAccountsComponent },
   { path: 'doctors', component: AllDoctorsComponent },
+  { path: 'patients', component: AllPatientsComponent },
 ];
 
 @NgModule({

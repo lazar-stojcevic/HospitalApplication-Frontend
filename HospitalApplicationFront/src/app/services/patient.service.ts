@@ -14,6 +14,10 @@ export class PatientService {
     return this.http.get(environment.serverUrl + 'patients/' + id);
   }
 
+  getAllPatient() {
+    return this.http.get(environment.serverUrl + 'patients');
+  }
+
   updatePatientData(
     id: string,
     username: string,

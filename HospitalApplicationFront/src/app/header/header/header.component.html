@@ -2,8 +2,9 @@
     <div> Vaša Bolnica </div>
     <div>
         <span [routerLink]="['']">Početna strana</span>
-        <span *ngIf="role === 'PATIENT' || role === 'ADMIN'" [routerLink]="['/appointments']">Pregledi</span>
-        <span *ngIf="role === 'DOCTOR' || role === 'ADMIN'" [routerLink]="['/doctor-appointments']">Pregledi</span>
+        <span *ngIf="role === 'PATIENT'" [routerLink]="['/appointments']">Pregledi</span>
+        <span *ngIf="role === 'DOCTOR'" [routerLink]="['/doctor-appointments']">Pregledi</span>
+        <span *ngIf="role === 'ADMIN'" [routerLink]="['/patients']">Korisnici</span>
         <span *ngIf="role !== ''" [routerLink]="['/doctors']">Lekari</span>
         <span *ngIf="role === ''" [routerLink]="['/login']">Prijava</span>
         <span *ngIf="role === ''" [routerLink]="['/registration']">Registracija</span>
