@@ -17,6 +17,14 @@ export class AllPatientsComponent implements OnInit {
     this.getAllPatients();
   }
 
+  public blockUser(patientId: string){
+    this.patientService.blockPatient(patientId).subscribe(() => this.getAllPatients());
+  }
+
+  public unblockUser(patientId: string){
+    this.patientService.unblockPatient(patientId).subscribe(() => this.getAllPatients());
+  }
+
   private getAllPatients(){
     this.patientService.getAllPatient().subscribe(res => {
       let temp: any;

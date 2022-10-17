@@ -18,6 +18,14 @@ export class PatientService {
     return this.http.get(environment.serverUrl + 'patients');
   }
 
+  blockPatient(patientId: string){
+    return this.http.put(environment.serverUrl + 'patients/block/' + patientId, {});
+  }
+
+  unblockPatient(patientId: string){
+    return this.http.put(environment.serverUrl + 'patients/unblock/' + patientId, {});
+  }
+
   updatePatientData(
     id: string,
     username: string,
