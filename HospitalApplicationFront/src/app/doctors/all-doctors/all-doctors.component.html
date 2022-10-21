@@ -1,6 +1,6 @@
 <div class="container">
   <h1> Lekari </h1>
-  <table mat-table [dataSource]="doctors" class="mat-elevation-z8">
+  <table *ngIf="role !== 'ADMIN'" mat-table [dataSource]="doctors" class="mat-elevation-z8">
     <ng-container matColumnDef="username">
       <th mat-header-cell *matHeaderCellDef> Korisničko ime </th>
       <td mat-cell *matCellDef="let element"> {{element.username}} </td>
@@ -23,5 +23,42 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <table *ngIf="role === 'ADMIN'" mat-table [dataSource]="doctors" class="mat-elevation-z8">
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> Korisničko ime </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> Ime </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="surname">
+      <th mat-header-cell *matHeaderCellDef> Prezime </th>
+      <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="medicalSpeciality">
+      <th mat-header-cell *matHeaderCellDef> Specijalnost </th>
+      <td mat-cell *matCellDef="let element"> {{element.medicalSpeciality}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deactiveDoctor">
+      <th mat-header-cell *matHeaderCellDef> Deaktiviraj lekara </th>
+      <td mat-cell *matCellDef="let element">
+          <button mat-button *ngIf="element.isActive" (click)="blockUser(element.id)">
+              Blokiraj
+          </button>
+          <button mat-button *ngIf="!element.isActive" (click)="unblockUser(element.id)">
+              Odblokiraj
+          </button>
+      </td>
+  </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsForDoctor"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsForDoctor;"></tr>
   </table>
 </div>
