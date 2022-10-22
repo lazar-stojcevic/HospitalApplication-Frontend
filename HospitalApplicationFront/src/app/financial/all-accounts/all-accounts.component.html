@@ -19,7 +19,7 @@
     <ng-container matColumnDef="changeBalance">
       <th mat-header-cell *matHeaderCellDef> Uplati novac </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button (click)="openPayDialog(element.id, element.patientUsername)">
+        <button mat-button [disabled]="role === 'ADMIN'" (click)="openPayDialog(element.id, element.patientUsername)">
           Uplati
         </button>
       </td>

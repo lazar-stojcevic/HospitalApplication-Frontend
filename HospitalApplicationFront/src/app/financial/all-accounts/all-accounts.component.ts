@@ -10,12 +10,14 @@ import { InsertDepositDialogComponent } from '../insert-deposit-dialog/insert-de
 })
 export class AllAccountsComponent implements OnInit {
   accounts : any;
+  role = "";
 
   displayedColumns: string[] = ['patientUsername', 'accountNumber', 'balance', 'changeBalance'];
 
   constructor(public financialService: FinancialService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem('role') ?? "";
     this.getAllAccounts();
   }
 
