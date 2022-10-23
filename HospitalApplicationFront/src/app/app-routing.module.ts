@@ -4,6 +4,7 @@ import { DoctorAppointmentsComponent } from './appointments/doctor-appointments/
 import { OneAppointmentComponent } from './appointments/one-appointment/one-appointment.component';
 import { PatientAppointmentsComponent } from './appointments/patient-appointments/patient-appointments.component';
 import { AllDoctorsComponent } from './doctors/all-doctors/all-doctors.component';
+import { FileExportComponent } from './file-export/file-export/file-export.component';
 import { AllAccountsComponent } from './financial/all-accounts/all-accounts.component';
 import { PatientAccountComponent } from './financial/patient-account/patient-account.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'accounts', component: AllAccountsComponent },
   { path: 'doctors', component: AllDoctorsComponent },
   { path: 'patients', component: AllPatientsComponent },
+  { path: 'export', component: FileExportComponent },
 ];
 
 @NgModule({
