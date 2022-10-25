@@ -15,6 +15,7 @@ import { ProfilesModule } from './profiles/profiles.module';
 import { FinancialModule } from './financial/financial.module';
 import { DoctorsModule } from './doctors/doctors.module';
 import { PatientsModule } from './patients/patients.module';
+import { FileExportModule } from './file-export/file-export.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PatientsModule } from './patients/patients.module';
     ProfilesModule,
     FinancialModule,
     DoctorsModule,
-    PatientsModule
+    PatientsModule,
+    FileExportModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi:true}

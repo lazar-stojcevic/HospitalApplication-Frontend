@@ -1,14 +1,31 @@
-<h1>Doktor: {{appointment.doctorName ?? ''}} - Pacijent: {{appointment.patientName}}</h1>
-<br>
-<button mat-flat-button *ngIf="!appointment.report" (click)="seePatientPastAppointments()">Prethodni pregledi pacijenta</button>
-<br>
-<h2>Termin: {{appointment.startTime | date: 'd.M.Y HH:mm'}} - {{appointment.endTime | date:'HH:mm'}}</h2>
-<br>
-<h2>Izveštaj:</h2>
-<p *ngIf="appointment.report"></p>
-<textarea matInput  *ngIf="!appointment.report" [(ngModel)]="report"></textarea>
-<h2 *ngIf="appointment.report">Cena: {{appointment.price}}</h2>
-<h2 *ngIf="!appointment.report">Cena:</h2>
-<input *ngIf="!appointment.report" mat-input step="1" [(ngModel)]="price" type="number">
-<button mat-flat-button *ngIf="!appointment.report" (click)="createAppointment()">Zakaži novi pregled</button>
-<button [disabled]="report.trim() === '' || price < 0" mat-flat-button *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>
+<div class="container">
+    <mat-card>
+        <h1>Doktor: {{appointment.doctorName ?? ''}} - Pacijent: {{appointment.patientName}}</h1>
+        <br>
+        <button mat-flat-button color="primary" *ngIf="!appointment.report"
+            (click)="seePatientPastAppointments()">Prethodni pregledi
+            pacijenta</button>
+        <br>
+        <h2>Termin: {{appointment.startTime | date: 'd.M.Y HH:mm'}} - {{appointment.endTime | date:'HH:mm'}}</h2>
+        <br>
+        <h2>Izveštaj:</h2>
+        <p *ngIf="appointment.report"></p>
+        <mat-form-field class="textarea-width" appearance="fill">
+            <textarea matInput *ngIf="!appointment.report" [(ngModel)]="report" cdkTextareaAutosize
+                cdkAutosizeMinRows="20" cdkAutosizeMaxRows="100"></textarea>
+        </mat-form-field>
+        <h2 *ngIf="appointment.report">Cena: {{appointment.price}}</h2>
+        <h2 *ngIf="!appointment.report">Cena:</h2>
+        <mat-form-field class="input-width" appearance="fill">
+            <input matInput appearance="fill" color="accent" *ngIf="!appointment.report" mat-input step="1"
+                [(ngModel)]="price" type="number">
+        </mat-form-field>
+            <br>
+            <div style="margin-top: 1rem;">
+                <button mat-flat-button color="primary" style="margin-right: 1rem;" *ngIf="!appointment.report"
+                    (click)="createAppointment()">Zakaži novi pregled</button>
+                <button mat-flat-button color="primary" [disabled]="report.trim() === '' || price < 0" mat-flat-button
+                    *ngIf="!appointment.report" (click)="finishAppointment()">Završi pregled</button>
+            </div>
+    </mat-card>
+</div>

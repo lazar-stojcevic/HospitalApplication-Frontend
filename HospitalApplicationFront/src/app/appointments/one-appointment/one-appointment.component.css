@@ -1,0 +1,12 @@
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+.textarea-width {
+    width: 70%;
+}
+
+.input-width {
+    width: 30%;
+}
