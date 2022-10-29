@@ -13,4 +13,8 @@ export class DatabaseExportService {
   getDatabaseJSON() {
     return this.http.get(environment.serverUrl + 'export');
   }
+
+  getDatabaseJSONPseudonymization() {
+    return this.http.get(environment.serverUrl + 'export-pseudonymization');
+  }
 }

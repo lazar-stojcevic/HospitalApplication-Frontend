@@ -22,6 +22,15 @@ export class FileExportComponent implements OnInit {
     })
   }
 
+  getDatabaseJsonPseudonymization() {
+    this.exportService.getDatabaseJSONPseudonymization().subscribe(res => {
+      this.dyanmicDownloadByHtmlTag({
+        fileName: 'HospitalAppDatabase.json',
+        text: JSON.stringify(res)
+      });
+    })
+  }
+
   private dyanmicDownloadByHtmlTag(arg: {
     fileName: string,
     text: string
