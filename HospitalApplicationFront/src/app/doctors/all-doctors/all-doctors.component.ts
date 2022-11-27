@@ -10,8 +10,8 @@ export class AllDoctorsComponent implements OnInit {
   doctors : any;
   role = "";
 
-  displayedColumns: string[] = ['username', 'firstName', 'surname', 'medicalSpeciality'];
-  displayedColumnsForDoctor: string[] = ['username', 'firstName', 'surname', 'medicalSpeciality', 'deactiveDoctor'];
+  displayedColumns: string[] = ['username', 'firstName', 'surname', 'email', 'medicalSpeciality'];
+  displayedColumnsForDoctor: string[] = ['username', 'firstName', 'surname', 'email', 'medicalSpeciality', 'deactiveDoctor'];
 
   constructor(public doctorService: DoctorService) { }
 
